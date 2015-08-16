@@ -23,12 +23,12 @@
       </a>
       <?php endif ?>
       <?php if($product->soldout() != ''): ?>
-      <p>£<?php echo $product->price() ?> — <button class="btn-disabled" type="submit" disabled=""><?php echo l::get('sold-out') ?></button></p>
+      <p><?php echo $site->page('products/cart')->currency_symbol() ?> <?php echo $product->price() ?> — <button class="btn-disabled" type="submit" disabled=""><?php echo l::get('sold-out') ?></button></p>
       <?php else: ?>
       <form method="post" action="<?php echo url('products/cart') ?>">
         <input type="hidden" name="action" value="add">
         <input type="hidden" name="id" value="<?php echo $product->uid() ?>">
-        <p>£<?php echo $product->price() ?> — <button class="btn" type="submit">Add to Cart</button></p>
+        <p><?php echo $site->page('products/cart')->currency_symbol() ?> <?php echo $product->price() ?> — <button class="btn" type="submit">Add to Cart</button></p>
       </form>
       <?php endif ?>
     </li>
